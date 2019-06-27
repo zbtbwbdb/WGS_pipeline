@@ -421,9 +421,9 @@ if [ -n "${compressedFormat}" ] && [ ${compressedFormat} == "sv" ];then
 echo "spliceai ready"
 else
 #revel score annotation [dbSNP3.5 already build-in]
-#${pythonPath} ${shellPath}/bin/otherScript/revel_anno.py ${oPath}/${sName}/${sName}.exo.mgi.analysis > ${oPath}/${sName}/${sName}.atac.exo.mgi.rev.analysis
+${pythonPath} ${shellPath}/bin/otherScript/revel_anno.py ${oPath}/${sName}/${sName}.exo.mgi.analysis > ${oPath}/${sName}/${sName}.atac.exo.mgi.rev.analysis
 sbatch ${shellPath}/Software/spliceai-1.1.1/run.spliceai.sh ${oPath}/${sName}/${sName}.format.sorted.analysis
-#sbatch ${shellPath}/Software/spliceai-1.1.1/run.spliceai.wgs.sh ${oPath}/${sName}/${sName}.format.sorted.analysis.all.filtered
+sbatch ${shellPath}/Software/spliceai-1.1.1/run.spliceai.wgs.sh ${oPath}/${sName}/${sName}.format.sorted.analysis.all.filtered
   if [ $? -eq 0 ]; then
     message=${sName}" spliceai Done" 
 else
